@@ -15,10 +15,9 @@ try :
 
     # 3. SQL문 실행
     sql = '''
-    update pet
-        set gender = 'm',
-            death='2018-10-04'
-        where species='dog'
+        delete
+            from pet
+            where owner = '찬이'
 '''
     count = cursor.execute(sql)
 
