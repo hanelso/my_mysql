@@ -57,7 +57,7 @@ def fetchbyname(name):
                 select *
                     from pet
                     where name = '%s'
-               '''%(name)
+               ''' %(name)
 
         cursor.execute(sql)
 
