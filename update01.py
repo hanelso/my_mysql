@@ -15,21 +15,15 @@ try :
 
     # 3. SQL문 실행
     sql = '''
-    select * from pet;
+    insert
+        into pet
+    values('마음이','찬이','dog','m','1994-02-10','0000-00-00');
 '''
     count = cursor.execute(sql)
 
-    # 4. 결과 받아오기(fetch)
-    while True:
-        row = cursor.fetchone()
-        if row is None:
-            break
-
-        print(row)
-
     # 5. 자원 정리
     cursor.close()
-    # conn.commit() #이건 sql문이 insert인 경우 db에 올려주는 과정
+    conn.commit() #이건 sql문이 insert인 경우 db에 올려주는 과정
     conn.close()
 
     # 6. 결과 출력

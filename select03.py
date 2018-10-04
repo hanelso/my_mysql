@@ -11,21 +11,16 @@ try :
         charset='utf8'
     )
     # 2. 커서 생성
-    cursor = conn.cursor()
+    cursor = conn.cursor(MySQLdb.cursors.DictCursor)
 
     # 3. SQL문 실행
     sql = '''
-    select * from pet;
+    select name, owner, species, date_format(cirth, '%Y-%m-%d') as birth_date from pet;
 '''
     count = cursor.execute(sql)
 
     # 4. 결과 받아오기(fetch)
-    while True:
-        row = cursor.fetchone()
-        if row is None:
-            break
-
-        print(row)
+    result_set = cursor.fetchall()
 
     # 5. 자원 정리
     cursor.close()
@@ -33,7 +28,8 @@ try :
     conn.close()
 
     # 6. 결과 출력
-    print(count)
+    for row in result_set:
+        print(row)
 
 except MySQLdb.Error as e:
     print("Error %d: %s" %(e.args[0],e.args[1]))
