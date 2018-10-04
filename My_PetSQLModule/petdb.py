@@ -75,7 +75,28 @@ def fetchbyname(name):
 
 # CR(U)D
 def update(pet):
-    pass
+    try:
+        conn = connect()
+        cursor = conn.cursor()
+
+        sql = '''
+            update pet
+                set gender = '%s',
+                    cirth = '%s'
+                where death = '0000-00-00'
+        '''% ( pet['gender'], pet['cirth'])
+
+        cursor.execute(sql)
+
+        cursor.close()
+        conn.commit()
+        conn.close()
+
+        return True
+
+    except MySQLdb.Error as e:
+        print("Error %d: %s" % (e.args[0], e.args[1]))
+        return False
 
 # CRU(D)
 def delete(name):

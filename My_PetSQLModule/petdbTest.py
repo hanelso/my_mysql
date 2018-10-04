@@ -10,5 +10,8 @@ print('insert test:', ret)
 result = petdb.fetchbyname('파트라슈')
 print(result)
 
+result = petdb.update({'gender': 'm', 'cirth': '2018-10-04'})
+print(result)
+
 
 

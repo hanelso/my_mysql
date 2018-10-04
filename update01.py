@@ -16,7 +16,7 @@ try :
     # 3. SQL문 실행
     sql = '''
     update pet
-        set gender = 'm',
+        set gender = 'f',
             death='2018-10-04'
         where species='dog'
 '''
@@ -24,7 +24,7 @@ try :
 
     # 5. 자원 정리
     cursor.close()
-    conn.commit() #이건 sql문이 insert인 경우 db에 올려주는 과정
+    conn.commit() #이건 sql문이 db에 올려주는 과정
     conn.close()
 
     # 6. 결과 출력

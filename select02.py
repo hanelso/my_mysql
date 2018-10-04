@@ -32,8 +32,5 @@ try :
     # conn.commit() #이건 sql문이 insert인 경우 db에 올려주는 과정
     conn.close()
 
-    # 6. 결과 출력
-    print(count)
-
 except MySQLdb.Error as e:
     print("Error %d: %s" %(e.args[0],e.args[1]))
